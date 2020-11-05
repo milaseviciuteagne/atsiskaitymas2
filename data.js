@@ -847,24 +847,27 @@ var data = [
         "height": 683
     },
 ]
+//  const dataobject = JSON.parse(data);
+
+// var vardai = [];
+
+
 // function print(){
-// for (data i = 0; i < data.length; i++) {
-//     console.log(data[i]);
-//     for (var j = 0; j < data[i].length; j++){
-//  console.log(data[i][j])
+// for (let i = 0; i < data.length; i++) {
+// //    console.log(data[i].breeds[0].name);
+//  vardai.push(data[i].breeds[0].name);
+// }};
+// print();
+// console.log(vardai);
 
 
-
-// }
-// }
-
-console.log(data[1].'breeds');
+// console.log(data[1].'breeds');
 // console.log(data[1]);
 // var results = document.getElementById(results);
 // const veisle = [];
 
 
-// results.addEventListener('keyup', (e) => {
+// vardai.addEventListener('keyup', (e) => {
 //     const search = e.target.value.toLowerCase();
 
 //     veisle.filtred(data => {
@@ -873,3 +876,30 @@ console.log(data[1].'breeds');
 // displayitem(veisle);
 
 // });
+
+
+var inputs = document.querySelector('.inputs');
+var results = document.getElementById('results');
+
+
+inputs.addEventListener('keyup', function(e){
+    results.innerHTML = '';
+    var search = e.target.value;
+data.forEach(element =>{
+    var card = document.createElement('div');
+    card.setAttribute('class', 'card');
+    var imageCard = document.createElement('div');
+    imageCard.setAttribute('class', 'card_image');
+    imageCard.style.backgroundImage = 'url(${element.url})';
+    card.appendChild(ImageCard);
+    var content = document.createElement('div');
+    content.setAttribute('class', 'card_content');
+    content.innerHTML = element.breeds[0].name;
+    card.appendChild(content);
+
+if(item.breeds[0].name.toLowerCase().includes(search.value.toLowerCase())){
+    console.log('veikia');
+    results.appendChild(card);
+}
+})
+});
